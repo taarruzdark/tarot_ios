@@ -43,6 +43,13 @@
         "buildType": "apk"
       }
     },
+        "release": {
+      "env": {
+        "BLAH": "456"
+      },
+      "node": "16.10.0",
+      "autoincrement": true
+    },
     "production": {
       "extends": "base",
       "env": {
