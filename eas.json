@@ -1,57 +1,53 @@
 {
-  "cli": {
-    "version": ">= 0.60.0"
-  },
   "build": {
-    "development": {
-      "distribution": "internal",
+    "base": {
+      "node": "12.13.0",
+      "yarn": "1.22.5",
+      "env": {
+        "EXAMPLE_ENV": "example value"
+      },
       "android": {
-        "gradleCommand": ":app:assembleDebug"
+        "image": "default",
+        "env": {
+          "PLATFORM": "android"
+        }
       },
       "ios": {
-        "buildConfiguration": "Debug"
-      },
-      "channel": "development"
+        "image": "latest",
+        "env": {
+          "PLATFORM": "ios"
+        }
+      }
     },
-    "preview": {
+    "development": {
+      "extends": "base",
+      "developmentClient": true,
+      "env": {
+        "ENVIRONMENT": "development"
+      },
+      "android": {
+        "distribution": "internal",
+        "withoutCredentials": true
+      },
+      "ios": {
+        "simulator": true
+      }
+    },
+    "staging": {
+      "extends": "base",
+      "env": {
+        "ENVIRONMENT": "staging"
+      },
       "distribution": "internal",
-      "channel": "preview"
+      "android": {
+        "buildType": "apk"
+      }
     },
     "production": {
-      "channel": "production"
-    },
-    "test": {
-      "android": {
-        "gradleCommand": ":app:assembleRelease :app:assembleAndroidTest -DtestBuildType=release",
-        "withoutCredentials": true
-      },
-      "ios": {
-        "simulator": true
-      },
-      "buildArtifactPaths": [
-        "artifacts/**/*.png"
-      ],
-      "channel": "test"
-    },
-    "test_debug": {
-      "android": {
-        "gradleCommand": ":app:assembleDebug :app:assembleAndroidTest -DtestBuildType=debug",
-        "withoutCredentials": true
-      },
-      "ios": {
-        "buildConfiguration": "Debug",
-        "simulator": true
-      },
+      "extends": "base",
       "env": {
-        "EXPO_USE_UPDATES": "1"
-      },
-      "buildArtifactPaths": [
-        "artifacts/**/*.png"
-      ],
-      "channel": "test_debug"
+        "ENVIRONMENT": "production"
+      }
     }
-  },
-  "submit": {
-    "production": {}
   }
 }
