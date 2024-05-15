@@ -15,7 +15,7 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.example.webviewexample", // Add this line
+      "package": "com.example.webviewexample", 
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -23,6 +23,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "baf93eaa-c839-498a-9ce2-6e7377461f2b" 
+      }
     }
   }
 }
