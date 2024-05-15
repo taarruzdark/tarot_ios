@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "webview-example",
-    "slug": "snack-825e4f9f-6b66-4db7-b3c0-f821725785e2",
-    "version": "1.0.0",
+    "name": "Tarot",
+    "slug": "tarot",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -26,7 +26,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "tarot" 
+        "projectId": "baf93eaa-c839-498a-9ce2-6e7377461f2b" 
       }
     }
   }
