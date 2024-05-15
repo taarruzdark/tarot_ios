@@ -6,10 +6,10 @@
     "development": {
       "distribution": "internal",
       "android": {
-        "gradleCommand": ":app:assembleDebug","image": "latest"
+        "gradleCommand": ":app:assembleDebug","image": "default"
       },
       "ios": {
-        "buildConfiguration": "Debug","image": "latest"
+        "buildConfiguration": "Debug","image": "default"
       },
       "channel": "development"
     },
@@ -23,7 +23,7 @@
     "test": {
       "android": {
         "gradleCommand": ":app:assembleRelease :app:assembleAndroidTest -DtestBuildType=release",
-        "withoutCredentials": true,"image": "latest"
+        "withoutCredentials": true,"image": "default"
       },
       "ios": {
         "simulator": true
@@ -36,11 +36,11 @@
     "test_debug": {
       "android": {
         "gradleCommand": ":app:assembleDebug :app:assembleAndroidTest -DtestBuildType=debug",
-        "withoutCredentials": true,"image": "latest"
+        "withoutCredentials": true,"image": "default"
       },
       "ios": {
         "buildConfiguration": "Debug",
-        "simulator": true,"image": "latest"
+        "simulator": true,"image": "default"
       },
       "env": {
         "EXPO_USE_UPDATES": "1"
