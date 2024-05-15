@@ -24,7 +24,7 @@
       "android": {
         "gradleCommand": ":app:assembleRelease :app:assembleAndroidTest -DtestBuildType=release",
         "withoutCredentials": true,
-        "image": "new-image-tag"
+        "image": "stable"
       },
       "ios": {
         "simulator": true
@@ -38,12 +38,12 @@
       "android": {
         "gradleCommand": ":app:assembleDebug :app:assembleAndroidTest -DtestBuildType=debug",
         "withoutCredentials": true,
-        "image": "new-image-tag"
+        "image": "stable"
       },
       "ios": {
         "buildConfiguration": "Debug",
         "simulator": true,
-        "image": "new-image-tag"
+        "image": "stable"
       },
       "env": {
         "EXPO_USE_UPDATES": "1"
