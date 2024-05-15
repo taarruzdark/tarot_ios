@@ -1,53 +1,57 @@
 {
+  "cli": {
+    "version": ">= 0.60.0"
+  },
   "build": {
-    "base": {
-      "node": "12.13.0",
-      "yarn": "1.22.5",
-      "env": {
-        "EXAMPLE_ENV": "example value"
-      },
+    "development": {
+      "distribution": "internal",
       "android": {
-        "image": "default",
-        "env": {
-          "PLATFORM": "android"
-        }
+        "gradleCommand": ":app:assembleDebug"
       },
       "ios": {
-        "image": "latest",
-        "env": {
-          "PLATFORM": "ios"
-        }
-      }
-    },
-    "development": {
-      "extends": "base",
-      "developmentClient": true,
-      "env": {
-        "ENVIRONMENT": "development"
+        "buildConfiguration": "Debug"
       },
+      "channel": "development"
+    },
+    "preview": {
+      "distribution": "internal",
+      "channel": "preview"
+    },
+    "production": {
+      "channel": "production"
+    },
+    "test": {
       "android": {
-        "distribution": "internal",
+        "gradleCommand": ":app:assembleRelease :app:assembleAndroidTest -DtestBuildType=release",
         "withoutCredentials": true
       },
       "ios": {
         "simulator": true
-      }
-    },
-    "staging": {
-      "extends": "base",
-      "env": {
-        "ENVIRONMENT": "staging"
       },
-      "distribution": "internal",
-      "android": {
-        "buildType": "apk"
-      }
+      "buildArtifactPaths": [
+        "artifacts/**/*.png"
+      ],
+      "channel": "test"
     },
-    "production": {
-      "extends": "base",
+    "test_debug": {
+      "android": {
+        "gradleCommand": ":app:assembleDebug :app:assembleAndroidTest -DtestBuildType=debug",
+        "withoutCredentials": true
+      },
+      "ios": {
+        "buildConfiguration": "Debug",
+        "simulator": true
+      },
       "env": {
-        "ENVIRONMENT": "production"
-      }
+        "EXPO_USE_UPDATES": "1"
+      },
+      "buildArtifactPaths": [
+        "artifacts/**/*.png"
+      ],
+      "channel": "test_debug"
     }
+  },
+  "submit": {
+    "production": {}
   }
 }
